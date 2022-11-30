@@ -42,7 +42,7 @@ const Header: FC = () => {
                 showMenu &&
                 <div className='md:hidden'>
                    
-                    <Search display={'w-[400px] flex'} />
+                    <Search display={'w-3/4 flex'} />
                 </div>
             }
         </header>
