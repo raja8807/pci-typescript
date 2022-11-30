@@ -7,8 +7,9 @@ module.exports = {
   theme: {
     screens: {
       'md': '992px',
-      // => @media (min-width: 992px) { ... }
-      'sm' : '664px'
+      'md-lg' : '768px',
+            // => @media (min-width: 992px) { ... }
+      'sm' : '600px',
     },
     extend: {
       colors : {
