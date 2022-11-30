@@ -3,17 +3,24 @@ import React, { useState } from 'react'
 import { MdDashboard, MdOutlinePeopleAlt } from 'react-icons/md'
 import { BsFillFileEarmarkBarGraphFill, BsPersonSquare, BsQuestionCircleFill, BsChevronLeft } from 'react-icons/bs'
 import { FaIdCardAlt } from 'react-icons/fa'
-
+// import { type } from 'os'
 // import {BsPlus, BsQuestion, } from 'react-icons/bs'
 
+interface Props {
+    showSideBar : boolean
+    setShowSideBar :  React.Dispatch<React.SetStateAction<boolean>>
+}
 
-const Sidebar = () => {
-    const [show, setShow] = useState(false)
+const Sidebar = ({showSideBar , setShowSideBar}:Props) => {
+
+    console.log(showSideBar);
+    
+    
+    // const [showSideBar, setShow] = useState(false)
     return (
-        <div className='z-10'>
-            <div className={`w-[85px] ${show ? 'flex' : 'hidden'} flex-col items-center text-center fixed bg-grey
-        md:flex`}>
-
+        <div className='z-40'>
+            <div className={`pt-[85px] ${showSideBar ? 'w-[85px]' : 'w-0'} overflow-x-hidden flex flex-col items-center text-center fixed bg-grey min-h-screen
+        md:w-[85px]`}>
                 <div className='h-[85px] w-full flex justify-center items-center cursor-pointer'>
                     <div className='border-2 border-green-light h-[50px] w-[50px] rounded-md flex justify-center items-center'>
                         <BsChevronLeft className='w-[25px] h-[25px] text-green-dark' />
@@ -65,13 +72,13 @@ const Sidebar = () => {
 
             </div>
 
-            <div className={`cursor-pointer fixed top-1/2 left-${show ? '[90px]' : '0'}  py-2 rounded-xl opacity-25 
+            <div className={`cursor-pointer fixed top-1/2 ${showSideBar ? 'left-[90px]' : 'left-0'}  py-2 rounded-xl z-50
             hover:bg-green-light hover:opacity-50
             md:hidden`}
                 onClick={(): void => {
-                    setShow(!show)
+                    setShowSideBar(!showSideBar)
                 }}>
-                <BsChevronLeft className={`rotate-${show ? '0' : '180'} h-[25px] w-[25px] text-green-dark`} />
+                <BsChevronLeft className={`${showSideBar ? 'rotate-0' : 'rotate-180'} h-[25px] w-[25px] text-green-dark`} />
             </div>
         </div>
     )
