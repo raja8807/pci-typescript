@@ -1,6 +1,7 @@
 import CustomerCard from './CustomerCard'
+import React, { useState } from 'react'
 
-const CustomerHolder = () => {
+const CustomerHolder:React.FC = () => {
 
   let customers = [
     {
@@ -54,12 +55,33 @@ const CustomerHolder = () => {
     }
   ]
 
+  const [message, setMeassage] = useState<string>('')
+
+  var period:undefined | number;
+  function addToFav(customerName:string){
+    
+    if(period){clearTimeout(period)}
+    setMeassage(customerName)
+    setTimeout(():void=>{
+      setMeassage('')
+    },5000)
+  }
+
 
   return (
     <div className='flex flex-wrap justify-center'>
+
+      {
+        message != "" &&
+        <div className='absolute bottom-10 right-1/2 z-40 bg-black text-white text-sm rounded-md px-4 py-2'>
+          {message}
+        </div>
+      }
+
+
       {
         customers.map((customer) => {
-          return <CustomerCard key={customer.id} customer={customer}/>
+          return <CustomerCard key={customer.id} customer={customer} addToFav={addToFav}/>
         })
       }
     </div>

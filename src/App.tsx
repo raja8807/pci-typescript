@@ -21,7 +21,7 @@ const App = () => {
 
         <div className='pt-[88px]  h-screen overflow-y-scroll
         md:ml-[85px]'>
-          <div className={`bg-white min-h-full ${showSideBar && 'opacity-25 ml-[85px]'} ${showHeader && 'opacity-25'} overflow-hidden rounded-2xl
+          <div className={`bg-white min-h-full ${showSideBar && 'opacity-25'} ${showHeader && 'opacity-25'} overflow-hidden rounded-2xl
           md:opacity-100 md:ml-0`}>
 
             <CustomerHolder />

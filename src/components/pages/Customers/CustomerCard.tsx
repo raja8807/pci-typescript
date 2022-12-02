@@ -1,4 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import { AiFillCaretDown, AiFillStar } from 'react-icons/ai'
+
+
+import logo from '../../assets/custLogo.png'
 
 type Customer = {
     id: string
@@ -9,28 +14,130 @@ type Customer = {
     status: string
 }
 
-interface Props{
-    customer : Customer
+interface Props {
+    customer: Customer
+    addToFav: (customerName: string) => void
 }
 
-const CustomerCard = ({customer}:Props) => {
-    return (
-        <div className='w-full flex shadow-md p-5 h-[263px] border-2 border-grey rounded-xl my-6 mx-4
-        
-        md:w-[450px]'>
-            <div className=' w-1/5 h-full'>
-                <div className='w-[70px] h-[70px] rounded-full border shadow-md'>
+const CustomerCard = ({ customer, addToFav }: Props) => {
 
+    const [checked, setChecked] = useState<boolean>(false)
+    const [showOptions, setShowOptions] = useState<boolean>(false)
+    const [addedToFav, setAddedToFav] = useState<boolean>(false)
+
+    function check(): void {
+        setChecked(!checked)
+        setShowOptions(false)
+    }
+
+    // function addToFav(): void {
+    //     setChecked(!checked)
+    // }
+    return (
+        <div className={`relative w-full flex shadow-md p-5 border-2 border-grey rounded-xl my-6 mx-4
+        ${checked && 'bg-grey'}
+        md:w-auto`}>
+
+            <div className='flex absolute right-5'>
+
+                <div className='sm:hidden'>
+                    <AiFillCaretDown className='mr-0 ml-auto cursor-pointer'
+                        onClick={(): void => {
+                            setShowOptions(!showOptions)
+                        }}
+                    />
+                    {
+                        showOptions &&
+                        <div className='cursor-pointer bg-grey shadow-lg rounded-md border border-green-light'>
+                            <p className='px-4 border-b-2 hover:bg-green-light rounded-t-md'
+                                onClick={() => {
+                                    check()
+                                }}>Check</p>
+                            <p className='px-4 hover:bg-green-light rounded-b-md'>Add To Favourites</p>
+                        </div>
+                    }
+                </div>
+
+                <div className='cursor-pointer p-1 h-[22px] w-[22px] rounded-full border-2 border-green-light
+                sm:block'
+                    onClick={(): void => {
+                        check()
+                    }}>
+                    {
+                        checked &&
+                        <div className='h-full w-full rounded-full bg-green-light'>
+
+                        </div>
+                    }
+                </div>
+
+                <AiFillStar className={`cursor-pointer h-[24px] w-[24px] 
+                ${addedToFav ? 'text-green-light' : 'text-gray-300'}
+                hover:text-green-light`}
+                    onClick={(): void => {
+                        
+                        if(!addedToFav){
+                            addToFav(customer.name+' Added To Favourites')
+                        }else{
+                            addToFav(customer.name+' Removed From Favourites')
+                        }
+                        setAddedToFav(!addedToFav)
+                    }} />
+
+            </div>
+
+
+
+            <div className=' w-1/5 h-full'>
+                <div className='w-full rounded-full border shadow-md'>
+                    <img src={logo} className='w-full h-auto' />
                 </div>
             </div>
-            <div className='w-4/5 h-full '>
-                <h2 className='text-green-dark text-2xl font-bold mb-2'>{customer.name}</h2>
-                <p>ID : <span>{customer.id}</span></p>
-                <div className='w-4/5  flex flex-wrap justify-between mt-[75px]'>
-                    <button className='min-w-1/3 px-9  text-white font-bold bg-green-light rounded-full'><small>Manage</small></button>
-                    <button className='min-w-1/3 px-6 text-green-light font-bold border-2 border-green-light rounded-full'><small>Quick View</small></button>
 
-                    <button className='min-w-full mt-4 bg-green-dark text-white font-bold rounded-full'><small>Create Assessmet</small></button>
+            <div className='w-3/5 h-full ml-4'>
+                <h2 className='text-green-dark text-2xl font-bold mb-2'>{customer.name}</h2>
+
+                <p>ID : <span>{customer.id}</span></p>
+
+                <div className='grid grid-cols-2 gap-x-4 gap-y-1  text-white text-sm font-semibold
+sm:grid-cols-4'>
+
+                    <div className='h-[24px] bg-green-light rounded-full flex items-center'>
+                        <div className='h-[20px] w-[20px] rounded-full bg-white ml-[2px]'>
+                        </div>
+                        <small className='m-auto'>{customer.projects}</small>
+                    </div>
+
+                    <div className='h-[24px] bg-green-light rounded-full flex items-center'>
+                        <div className='h-[20px] w-[20px] rounded-full bg-white ml-[2px]'>
+                        </div>
+                        <small className='m-auto'>{customer.person}</small>
+                    </div>
+
+                    <div className='h-[24px] bg-green-light rounded-full flex items-center'>
+                        <div className='h-[20px] w-[20px] rounded-full bg-white ml-[2px]'>
+                        </div>
+                        <small className='m-auto'>{customer.location}</small>
+                    </div>
+
+                    <div className='h-[24px] bg-green-light rounded-full flex items-center'>
+                        <div className='h-[20px] w-[20px] rounded-full bg-white ml-[2px]'>
+                        </div>
+                        <small className='m-auto'>{customer.status}</small>
+                    </div>
+
+
+                </div>
+
+                <small className='text-xs
+                sm:text-sm'>ROC due date : 04-28-2023</small>
+
+                <div className='customer-button-area text-sm
+                sm:text-base'>
+                    <button className='text-white bg-green-light font-bold rounded-full'><small>Quick View</small></button>
+                    <button className='text-green-light font-bold border-2 border-green-light rounded-full'><small>Quick View</small></button>
+
+                    <button className='full-btn bg-green-dark text-white font-bold rounded-full'><small>Create Assessmet</small></button>
                 </div>
             </div>
         </div>

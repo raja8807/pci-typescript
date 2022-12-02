@@ -6,3 +6,16 @@
 *{
     transition: 0.2s;
 }
+
+.customer-button-area{
+    display: grid;
+    grid-template-columns: 50%  50%;
+    column-gap: 1em;
+    row-gap: 0.5em;
+}
+
+.full-btn{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
