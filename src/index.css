@@ -19,3 +19,7 @@
     grid-column-end: 3;
 }
 
+.sidebar::-webkit-scrollbar{
+    display: none;
+}
+

@@ -19,9 +19,9 @@ const Sidebar = ({showSideBar , setShowSideBar}:Props) => {
     // const [showSideBar, setShow] = useState(false)
     return (
         <div className='z-40'>
-            <div className={`pt-[85px] ${showSideBar ? 'w-[85px]' : 'w-0'} overflow-x-hidden flex flex-col items-center text-center fixed bg-grey min-h-screen
+            <div className={`sidebar pt-[85px] ${showSideBar ? 'w-[85px]' : 'w-0'} overflow-x-hidden flex flex-col items-center text-center fixed bg-grey h-screen overflow-y-scroll
         md:w-[85px]`}>
-                <div className='h-[85px] w-full flex justify-center items-center cursor-pointer'>
+                <div className='my-3 h-[85px] w-full flex justify-center items-center cursor-pointer'>
                     <div className='border-2 border-green-light h-[50px] w-[50px] rounded-md flex justify-center items-center'>
                         <BsChevronLeft className='w-[25px] h-[25px] text-green-dark' />
                     </div>
@@ -62,7 +62,7 @@ const Sidebar = ({showSideBar , setShowSideBar}:Props) => {
                     <p className='text-sm font-semibold'>QA Review</p>
                 </div>
 
-                <div className='mb-3 text-green-light  hover:text-green-dark cursor-pointer'>
+                <div className='mb-8 text-green-light  hover:text-green-dark cursor-pointer'>
                     <div className='w-[70px] h-[50px] bg-green-light rounded-md flex justify-center items-center hover:bg-green-dark '>
                         <BsQuestionCircleFill className='text-white w-[29px] h-[29px]' />
                     </div>

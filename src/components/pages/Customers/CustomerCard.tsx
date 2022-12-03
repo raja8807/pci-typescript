@@ -34,13 +34,13 @@ const CustomerCard = ({ customer, addToFav }: Props) => {
     //     setChecked(!checked)
     // }
     return (
-        <div className={`relative w-full flex shadow-md p-5 border-2 border-grey rounded-xl my-6 mx-4
+        <div className={`relative w-full flex shadow-md p-5 border-2 border-grey rounded-xl my-6 
         ${checked && 'bg-grey'}
         md:w-auto`}>
 
-            <div className='flex absolute right-5'>
+            <div className='flex absolute right-5 gap-1'>
 
-                <div className='sm:hidden'>
+                {/* <div className='sm:hidden'>
                     <AiFillCaretDown className='mr-0 ml-auto cursor-pointer'
                         onClick={(): void => {
                             setShowOptions(!showOptions)
@@ -56,10 +56,10 @@ const CustomerCard = ({ customer, addToFav }: Props) => {
                             <p className='px-4 hover:bg-green-light rounded-b-md'>Add To Favourites</p>
                         </div>
                     }
-                </div>
+                </div> */}
 
-                <div className='cursor-pointer p-1 h-[22px] w-[22px] rounded-full border-2 border-green-light
-                sm:block'
+                <div className='cursor-pointer p-[2px] h-[18px] w-[18px] rounded-full border-2 border-green-light
+                sm:h-[22px] sm:w-[22px]'
                     onClick={(): void => {
                         check()
                     }}>
@@ -71,9 +71,9 @@ const CustomerCard = ({ customer, addToFav }: Props) => {
                     }
                 </div>
 
-                <AiFillStar className={`cursor-pointer h-[24px] w-[24px] 
-                ${addedToFav ? 'text-green-light' : 'text-gray-300'}
-                hover:text-green-light`}
+                <AiFillStar className={`cursor-pointer h-[20px] w-[20px] 
+                sm:h-[24px] sm:w-[24px] 
+                ${addedToFav ? 'text-green-light' : 'text-gray-300'}`}
                     onClick={(): void => {
                         
                         if(!addedToFav){
