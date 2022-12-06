@@ -77,9 +77,9 @@ const CustomerCard = ({ customer, addToFav }: Props) => {
                     onClick={(): void => {
                         
                         if(!addedToFav){
-                            addToFav(customer.name+' Added To Favourites')
+                            addToFav(customer.name)
                         }else{
-                            addToFav(customer.name+' Removed From Favourites')
+                            addToFav(customer.name)
                         }
                         setAddedToFav(!addedToFav)
                     }} />
