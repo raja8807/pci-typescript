@@ -2,7 +2,8 @@ import { type } from '@testing-library/user-event/dist/type'
 import React, { useState,useContext } from 'react'
 
 import SubBranch from './SubBranch'
-import { MdKeyboardArrowRight, MdKeyboardArrowDown } from 'react-icons/md'
+import { RxChevronRight, RxChevronDown } from 'react-icons/rx'
+import { TbFileDescription } from 'react-icons/tb'
 import AssessmentContext from '../AssessmentContext'
 
 type Tab = {
@@ -32,11 +33,11 @@ const MainBranch = ({ branch }: AppProps) => {
 
     const [expanded, setExpanded] = useState<Boolean>(false)
 
-    let x = useContext(AssessmentContext).currentEnd
+    let currentEnd = useContext(AssessmentContext).currentEnd
 
     let y = branch.subs.some((sub)=>{
         return sub.ends.some((end)=>{
-            return end.end == x.end
+            return end.end == currentEnd.end
         })
     })
 
@@ -47,14 +48,15 @@ const MainBranch = ({ branch }: AppProps) => {
     return (
         <div >
             <div className={`flex items-center cursor-pointer rounded-md my-2
-            ${y&& 'bg-slate-200'}
-            hover:bg-slate-200`}
+            ${y&& 'bg-slate-300 shadow'}
+            hover:bg-slate-200 `}
                 onClick={(): void => {
                     setExpanded(!expanded)
                 }}>
                 {
-                    !expanded ? <MdKeyboardArrowRight /> : <MdKeyboardArrowDown />
+                    !expanded ? <RxChevronRight/> : <RxChevronDown />
                 }
+                <TbFileDescription className='text-green-dark'/>
                 {
                     <p className='px-1'>{branch.main}</p>
                 }
@@ -62,7 +64,7 @@ const MainBranch = ({ branch }: AppProps) => {
             {
                 expanded &&
                 branch.subs.map((sub, i) => {
-                    return <SubBranch key={i} sub={sub} />
+                    return <SubBranch key={i} sub={sub}/>
                 })
             }
         </div>

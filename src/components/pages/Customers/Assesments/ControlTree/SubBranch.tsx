@@ -1,6 +1,7 @@
 import React, { useState,useContext } from 'react'
 
-import { MdKeyboardArrowRight, MdKeyboardArrowDown } from 'react-icons/md'
+import { RxChevronRight, RxChevronDown } from 'react-icons/rx'
+
 import { AiFillFlag,AiFillStar } from 'react-icons/ai'
 
 import AssessmentContext from '../AssessmentContext'
@@ -37,13 +38,14 @@ const SubBranch = ({ sub }: AppProps) => {
     return (
         <div>
             <div className={`flex items-center cursor-pointer ml-4 my-2 rounded-md
-            ${y&&'bg-slate-200'}
+            ${y &&'bg-slate-300 shadow'}
             hover:bg-slate-200`}
                 onClick={(): void => {
                     setExpanded(!expanded)
                 }}>
                 {
-                    !expanded ? <MdKeyboardArrowRight /> : <MdKeyboardArrowDown />
+                    !expanded ? <RxChevronRight /> : <RxChevronDown />
+                    
                 }
                 <p className='px-1'>{sub.sub}</p>
             </div>
@@ -55,14 +57,17 @@ const SubBranch = ({ sub }: AppProps) => {
                             changeCurrentEnd(end)
                         }}>
 
-                        <AiFillFlag className='cursor-pointer mr-1 text-yellow-500'/>
-                        <AiFillFlag className='cursor-pointer mr-1 text-red-500'/>
+                        <AiFillFlag className='cursor-pointer mr-1 text-yellow-400
+                        hover:scale-125 hover:text-yellow-500'/>
+                        <AiFillFlag className='cursor-pointer mr-1 text-red-400
+                        hover:scale-125 hover:text-red-500'/>
                         
 
-                        <div className={`${currentEnd.end == end.end && 'bg-white'} px-4 rounded-md flex items-center justify-between cursor-pointer w-full
-                        ${currentEnd.end !== end.end && 'hover:bg-slate-200'}`}>
+                        <div className={`${currentEnd.end == end.end && 'bg-white shadow'}  px-4 rounded-md flex items-center justify-between cursor-pointer w-full
+                        ${currentEnd.end !== end.end && 'hover:bg-slate-200 '}`}>
                             <p>{end.end}</p>
-                            <AiFillStar className='cursor-pointer text-sm text-yellow-500'/>
+                            <AiFillStar className='cursor-pointer text-sm text-yellow-400
+                            hover:scale-125 hover:text-yellow-500'/>
                         </div>
 
                     </div>
