@@ -8,7 +8,7 @@ import Sidebar from './components/Sidebar/Sidebar'
 
 import CustomerHolder from './components/pages/Customers/CustomerHolder'
 import Dashboard from './components/pages/Dashboard/Dashboard'
-import AssesmentsHolder from './components/pages/Assessments/AssesmentsHolder'
+import Assesments from './components/pages/Customers/Assesments/Assesments'
 
 const App = () => {
 
@@ -32,15 +32,15 @@ const App = () => {
           <Header showHeader={showHeader} setShowHeader={setShowHeader} />
           <Sidebar showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
 
-          <div className={`pt-[88px]  h-screen overflow-y-scroll ${showSideBar && 'overflow-x-hidden'}
+          <div className={`pt-[88px]   h-screen overflow-y-scroll ${showSideBar && 'overflow-x-hidden'}
         md:ml-[85px]`}>
-            <div className={`bg-white min-h-full ${showSideBar && 'opacity-25 translate-x-[85px] '} ${showHeader && 'opacity-25'} overflow-hidden 
-          md:opacity-100 md:ml-0`}>
-
+            <div className={` rounded-2xl min-h-full ${showSideBar && 'opacity-25 translate-x-[85px] '} ${showHeader && 'opacity-25'} overflow-hidden 
+          md:opacity-100 md:ml-0 md:translate-x-[0px]`}>
+              {/* <Assessments /> */}
               <Routes>
                 <Route index element={<Dashboard />} />
-                <Route path='/assesments' element={<AssesmentsHolder/>}/>
-                <Route path='/manage-customer' element={<CustomerHolder/>}/>
+                <Route path='/assesments' element={<Assesments />} />
+                <Route path='/manage-customer' element={<CustomerHolder />} />
               </Routes>
             </div>
           </div>

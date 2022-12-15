@@ -114,9 +114,9 @@ const CustomerHolder: React.FC = () => {
   return (
     <>
 
-      <div className='w-screen h-[70px] bg-grey px-5 flex items-center'>
+      <div className='w-screen  h-[70px] bg-grey px-5 flex items-center'>
 
-        <div className='cursor-pointer flex bg-white  p-[3px] flex items-center rounded-full shadow-md'>
+        <div className='cursor-pointer  bg-white  p-[3px] flex items-center rounded-full shadow-md'>
 
           <AiFillStar className='bg-green-light rounded-full h-[25px] w-[25px] p-1 text-white mr-2' />
           <p className='mr-2'>Favourites</p>
@@ -130,7 +130,7 @@ const CustomerHolder: React.FC = () => {
 
       </div>
 
-      <div className='rounded-2xl p-4'>
+      <div className='rounded-2xl p-4 bg-white'>
         <Tabs currentTab={currentTab} tabs={tabs} />
 
 

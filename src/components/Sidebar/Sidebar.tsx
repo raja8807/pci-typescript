@@ -40,7 +40,7 @@ const Sidebar = ({ showSideBar, setShowSideBar }: Props) => {
                     ${currentPage == 'dashboard' ? 'bg-green-dark' : 'bg-green-light'}`}>
                         <MdDashboard className='text-white w-[29px] h-[29px]' />
                     </div>
-                    <p className=' text-sm font-semibold'>Dashboard</p>
+                    <p className=' text-[12px] font-semibold'>Dashboard</p>
                 </div>
 
                 <div className='mb-3 text-green-light  hover:text-green-dark cursor-pointer'
@@ -53,7 +53,7 @@ const Sidebar = ({ showSideBar, setShowSideBar }: Props) => {
                     ${currentPage == 'assesments' ? 'bg-green-dark' : 'bg-green-light'}`}>
                         <BsFillFileEarmarkBarGraphFill className='text-white w-[29px] h-[29px]' />
                     </div>
-                    <p className='text-sm font-semibold'>Assesments</p>
+                    <p className='text-[12px] font-semibold'>Assesments</p>
                 </div>
 
                 <div className='mb-3 text-green-light  hover:text-green-dark cursor-pointer'
@@ -67,7 +67,7 @@ const Sidebar = ({ showSideBar, setShowSideBar }: Props) => {
                     ${currentPage == 'customer' ? 'bg-green-dark' : 'bg-green-light'}`}>
                         <MdOutlinePeopleAlt className='text-white w-[29px] h-[29px]' />
                     </div>
-                    <p className='text-sm font-semibold'>Customer</p>
+                    <p className='text-[12px] font-semibold'>Customer</p>
                 </div>
 
                 <div className='mb-3 text-green-light  hover:text-green-dark cursor-pointer'
@@ -79,7 +79,7 @@ const Sidebar = ({ showSideBar, setShowSideBar }: Props) => {
                     ${currentPage == 'assessor' ? 'bg-green-dark' : 'bg-green-light'}`}>
                         <FaIdCardAlt className='text-white w-[29px] h-[29px]' />
                     </div>
-                    <p className='text-sm font-semibold'>Assessor</p>
+                    <p className='text-[12px] font-semibold'>Assessor</p>
                 </div>
 
                 <div className='mb-3 text-green-light  hover:text-green-dark cursor-pointer'
@@ -91,7 +91,7 @@ const Sidebar = ({ showSideBar, setShowSideBar }: Props) => {
                     ${currentPage == 'qareview' ? 'bg-green-dark' : 'bg-green-light'}`}>
                         <BsPersonSquare className='text-white w-[29px] h-[29px]' />
                     </div>
-                    <p className='text-sm font-semibold'>QA Review</p>
+                    <p className='text-[12px] font-semibold'>QA Review</p>
                 </div>
 
                 <div className='mb-8 text-green-light  hover:text-green-dark cursor-pointer'
@@ -102,7 +102,7 @@ const Sidebar = ({ showSideBar, setShowSideBar }: Props) => {
                     <div className={`w-[70px] h-[50px] ${currentPage=='faq'?'bg-green-dark':'bg-green-light'} rounded-md flex justify-center items-center hover:bg-green-dark `}>
                         <BsQuestionCircleFill className='text-white w-[29px] h-[29px]' />
                     </div>
-                    <p className='text-sm font-semibold'>FAQ</p>
+                    <p className='text-[12px] font-semibold'>FAQ</p>
                 </div>
 
 
