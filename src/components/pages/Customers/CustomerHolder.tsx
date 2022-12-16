@@ -1,5 +1,6 @@
 import CustomerCard from './CustomerCard'
-import React, { useState } from 'react'
+import React, { useState,useContext,useEffect} from 'react'
+import AppContext from '../../context/AppContext'
 import Tabs from '../Tabs/Tabs'
 import { AiFillStar } from 'react-icons/ai'
 
@@ -62,6 +63,12 @@ const CustomerHolder: React.FC = () => {
       status: 'Single',
     }
   ]
+
+  const setCurrentPage = useContext(AppContext).setCurrentPage
+
+    useEffect(() => {
+        setCurrentPage('customer')
+    }, [])
 
   const [message, setMeassage] = useState<string>('')
   const [favourites, setFavourites] = useState<string[]>([])

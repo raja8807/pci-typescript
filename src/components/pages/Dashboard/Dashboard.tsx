@@ -1,5 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Tabs from '../Tabs/Tabs'
+
+import AppContext from '../../context/AppContext'
+
 
 type Tab = {
     id: string
@@ -7,6 +10,12 @@ type Tab = {
 }
 
 const Dashboard = () => {
+
+    const setCurrentPage = useContext(AppContext).setCurrentPage
+
+    useEffect(() => {
+        setCurrentPage('dashboard')
+    }, [])
 
     const tabs: Tab[] = [{ id: '1', tab: 'Dashboard' }]
 

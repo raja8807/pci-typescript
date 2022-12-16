@@ -8,6 +8,7 @@ import AssessmentContext from '../AssessmentContext'
 
 type Tab = {
     tab:String
+    data?:String
 }
 
 type End = {

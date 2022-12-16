@@ -8,6 +8,7 @@ import AssessmentContext from '../AssessmentContext'
 
 type Tab = {
     tab:String
+    data?:String
 }
 
 type End = {
@@ -40,10 +41,6 @@ const MainBranch = ({ branch }: AppProps) => {
             return end.end == currentEnd.end
         })
     })
-
-    console.log(y);
-    
-    
 
     return (
         <div >
